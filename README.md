@@ -1,1 +1,1 @@
-# SP-Lab1
+# Design Patterns Lab
