@@ -1,13 +1,14 @@
 package com.book_management;
 
-public class Paragraph extends BaseBookEntry {
-
-    public Paragraph(String name) {
-        super(name);
+public class Paragraph implements Element {
+    private String text;
+    public Paragraph(String text) {
+        this.text = text;
     }
 
+
     @Override
-    public String toString() {
-        return "Paragraph{} " + super.toString();
+    public void print() {
+        System.out.println("Paragraph " + text);
     }
 }

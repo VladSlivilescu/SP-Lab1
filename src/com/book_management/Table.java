@@ -1,11 +1,12 @@
 package com.book_management;
 
-public class Table extends BaseBookEntry {
-    public Table(String name) {
-        super(name);
+public class Table implements Element {
+    private String title;
+    public Table(String title) {
+        this.title = title;
     }
 
-    public String toString() {
-        return "Table{}" + super.toString();
+    public void print() {
+        System.out.println("Table " + title);
     }
 }

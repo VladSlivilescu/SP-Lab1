@@ -1,12 +1,14 @@
 package com.book_management;
 
-public class Image extends BaseBookEntry {
-    public Image(String name) {
-        super(name);
+public class Image implements Element {
+    private String imageName;
+
+    public Image(String imageName) {
+        this.imageName = imageName;
     }
 
-    @Override
-    public String toString() {
-        return "Image{} " + super.toString();
+    public void print() {
+        System.out.println("Image " + imageName);
     }
+
 }

@@ -5,35 +5,33 @@ import java.util.ArrayList;
 
 public class Book {
     private String title;
-    private List<BaseBookEntry> entries;
+    private List<Author> authors;
+    private List<Chapter> chapters;
 
     public Book(String title) {
         this.title = title;
-        this.entries = new ArrayList<>();
+        this.chapters = new ArrayList<>();
+        this.authors = new ArrayList<>();
     }
 
-    public void createNewParagraph(String name) {
-        entries.add(new Paragraph(name));
+    public void addAuthor(Author author) {
+        authors.add(author);
     }
 
-    public void createNewImage(String name) {
-        entries.add(new Image(name));
+    public int createChapter(String name) {
+        chapters.add(new Chapter(name));
+        return chapters.size() - 1;
     }
 
-    public void createNewTable(String name) {
-        entries.add(new Table(name));
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", entries=" + entries +
-                '}';
+    public Chapter getChapter(int idx) {
+        return chapters.get(idx);
     }
 
     public void print() {
-        System.out.println(this);
+        System.out.println("Book " + title);
+        System.out.println("Authors");
+        authors.forEach(Author::print);
+        System.out.println("Chapters");
+        chapters.forEach(Chapter::print);
     }
-
 }
