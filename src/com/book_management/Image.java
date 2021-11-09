@@ -1,14 +1,14 @@
 package com.book_management;
 
 public class Image implements Element {
-    private String imageName;
+    private String url;
 
-    public Image(String imageName) {
-        this.imageName = imageName;
+    public Image(String url) {
+        this.url = url;
     }
 
     public void print() {
-        System.out.println("Image " + imageName);
+        System.out.println("Image " + url);
     }
 
 }
