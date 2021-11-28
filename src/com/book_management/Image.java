@@ -2,7 +2,7 @@ package com.book_management;
 
 import java.util.concurrent.TimeUnit;
 
-public class Image implements Element {
+public class Image implements Element, Picture {
     private String url;
 
     public Image(String url) {
@@ -14,8 +14,13 @@ public class Image implements Element {
         }
     }
 
+    @Override
     public void print() {
         System.out.println("Image " + url);
     }
 
+    @Override
+    public String url() {
+        return url;
+    }
 }
