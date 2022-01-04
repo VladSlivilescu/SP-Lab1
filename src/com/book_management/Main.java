@@ -5,32 +5,26 @@ public class Main {
         DocumentManager.getInstance().getBook().print();
     }
     public static void main(String[] args) throws Exception {
-        Book myBook = new Book("My Book");
-        DocumentManager.getInstance().setBook(myBook);
-        Author me = new Author("My Self", "and I");
-        myBook.addAuthor(me);
-        Section cap1 = new Section("Capitolul 1");
-        myBook.add(cap1);
+        Book book = new Book("O carte");
+        TableOfContents toc = new TableOfContents(book);
+        book.add(toc);
         Paragraph p1 = new Paragraph("Paragraph 1");
-        cap1.add(p1);
+        book.add(p1);
         Paragraph p2 = new Paragraph("Paragraph 2");
-        cap1.add(p2);
+        book.add(p2);
         Paragraph p3 = new Paragraph("Paragraph 3");
-
-        cap1.add(p3);
+        book.add(p3);
         Paragraph p4 = new Paragraph("Paragraph 4");
-        cap1.add(p4);
-        System.out.println("Printing without Alignment");
-        System.out.println();
-        cap1.print();
-        p1.setAlignStrategy(new AlignCenter());
-        p2.setAlignStrategy(new AlignRight());
-        p3.setAlignStrategy(new AlignLeft());
-        System.out.println();
-        System.out.println("Printing with Alignment");
-        System.out.println();
-        cap1.print();
+        book.add(p4);
+        book.add(new ImageProxy("ImageOne"));
+        book.add(new Image("ImageTwo"));
+        book.add(new Paragraph("Some text"));
+        book.add(new Table("Table 1"));
 
-        Printing();
+        BookStatistics stats = new BookStatistics();
+        book.accept(stats);
+        stats.printStatistics();
+
+        book.print();
     }
 }

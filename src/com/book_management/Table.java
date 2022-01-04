@@ -7,6 +7,14 @@ public class Table implements Element {
     }
 
     public void print() {
-        System.out.println("Table " + title);
+        System.out.println("## TABLE " + title + " ##");
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public <T> T accept(Visitor<T> visitor) {
+        return visitor.visit(this);
     }
 }

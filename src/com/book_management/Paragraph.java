@@ -16,7 +16,7 @@ public class Paragraph implements Element {
     @Override
     public void print() {
         if (alignStrategy == null) {
-            System.out.println(text);
+            System.out.println("## PARAGRAPH ##\n" + text + "\n## END OF PARAGRAPH ##");
             return;
         }
         alignStrategy.render(this);
@@ -24,5 +24,9 @@ public class Paragraph implements Element {
 
     public String getText() {
         return text;
+    }
+
+    public <T> T accept(Visitor<T> visitor) {
+        return visitor.visit(this);
     }
 }

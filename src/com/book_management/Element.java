@@ -15,4 +15,6 @@ public interface Element {
         throw new java.lang.UnsupportedOperationException();
     }
 
+    public <T> T accept(Visitor<T> visitor);
+
 }

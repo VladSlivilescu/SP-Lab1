@@ -13,8 +13,13 @@ public class Section implements Element {
     }
 
     public void print() {
-        System.out.println("Section " + title);
+        System.out.println("## SECTION " + title.toUpperCase() + " ##");
         children.forEach(Element::print);
+        System.out.println("## END OF SECTION ##");
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public void add(Element element) {
@@ -29,4 +34,11 @@ public class Section implements Element {
         return children.get(idx);
     }
 
+    public List<Element> getChildren() {
+        return children;
+    }
+
+    public <T> T accept(Visitor<T> visitor) {
+        return visitor.visit(this);
+    }
 }

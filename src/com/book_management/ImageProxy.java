@@ -21,4 +21,8 @@ public class ImageProxy implements Element, Picture {
     public String url() {
         return url;
     }
+
+    public <T> T accept(Visitor<T> visitor) {
+        return visitor.visit(this);
+    }
 }

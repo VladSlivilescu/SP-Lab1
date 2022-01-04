@@ -15,9 +15,17 @@ public class Book extends Section {
         authors.add(author);
     }
 
+    public List<Author> getAuthors() {
+        return authors;
+    }
+
     public void print() {
         System.out.println("Book");
         authors.forEach(Author::print);
         super.print();
+    }
+
+    public <T> T accept(Visitor<T> visitor) {
+        return visitor.visit(this);
     }
 }

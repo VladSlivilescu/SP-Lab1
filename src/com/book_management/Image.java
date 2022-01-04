@@ -16,11 +16,15 @@ public class Image implements Element, Picture {
 
     @Override
     public void print() {
-        System.out.println("Image " + url);
+        System.out.println("## IMAGE " + url + " ##");
     }
 
     @Override
     public String url() {
         return url;
+    }
+
+    public <T> T accept(Visitor<T> visitor) {
+        return visitor.visit(this);
     }
 }

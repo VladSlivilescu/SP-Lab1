@@ -1,14 +1,25 @@
 package com.book_management;
 
 public class TableOfContents implements Element {
-    private String content;
+    private Book book;
 
-    TableOfContents(String content) {
-        this.content = content;
+    TableOfContents(Book book) {
+        this.book = book;
     }
 
     @Override
     public void print() {
-        System.out.println("Table Of Contents\n" + this.content);
+        System.out.println("## TOC ##");
+        System.out.println(generateContent());
+        System.out.println("## END OF TOC ##");
+    }
+
+    public String generateContent() {
+        ToCGenerator generator = new ToCGenerator();
+        return book.accept(generator);
+    }
+
+    public <T> T accept(Visitor<T> visitor) {
+        return visitor.visit(this);
     }
 }

@@ -9,6 +9,10 @@ public class Author {
         this.surname = surname;
     }
 
+    public String getFullName() {
+        return String.format("%s %s", this.name, this.surname);
+    }
+
     public void print() {
         System.out.println("Author " + name + " " + surname);
     }
