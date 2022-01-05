@@ -13,7 +13,9 @@ https://github.com/VladSlivilescu/SP-Lab1/commit/98828b4b9d34135b5f20596949f28fc
 all good
 
 # Feedback lab6:
+https://github.com/VladSlivilescu/SP-Lab1/commit/7e5d7b5d05fc80f595288aa568e7aa0641d63025
 
-no content
+visitors should just operate on the data in the specific visit function... no accept and visit other element.
 
-# Proposed grade: 8
+
+# Proposed grade: 9
